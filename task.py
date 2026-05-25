@@ -4,7 +4,10 @@ from typing import Dict
 # Controlla il file readme.md per i dettagli su ciascun sub-task
 
 def calcola_derivata(espressione: str, variabile: str) -> sympy.Expr:
-    """Sub-task 1: Calcolare una Derivata."""
+    var = sp.Symbol(variabile)
+    espressione = sp.sympify(espressione)
+    derivata = sp.diff(espressione, var)
+    return derivata
     pass
 
 def calcola_integrale_definito(espressione: str, variabile: str, estremo_inf: float, estremo_sup: float) -> sympy.Expr:
