@@ -28,7 +28,12 @@ def calcola_limite(espressione: str, variabile: str, punto: str) -> sympy.Expr:
     pass
 
 def calcola_polinomio_taylor(espressione: str, variabile: str, punto: float, ordine: int) -> sympy.Expr:
-
+    espressione = sympy.sympify(espressione)
+    variabile = sympy.sympify(variabile)
+    punto = sympy.sympify(punto)
+    ordine = sympy.sympify(ordine)
+    taylor = espressione.series(variabile, punto, ordine).removeO()
+    return taylor
     pass
 
 def risolvi_sistema_lineare(eq1: str, eq2: str, var1: str, var2: str) -> Dict[sympy.Symbol, sympy.Expr]:
