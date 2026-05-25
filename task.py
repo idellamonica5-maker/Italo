@@ -20,7 +20,11 @@ def calcola_integrale_definito(espressione: str, variabile: str, estremo_inf: fl
     pass
 
 def calcola_limite(espressione: str, variabile: str, punto: str) -> sympy.Expr:
-
+    espressione = sympy.sympify(espressione)
+    variabile = sympy.sympify(variabile)
+    punto = sympy.sympify(punto)
+    calcolo_limite = sympy.limit(espressione,variabile,punto)
+    return calcolo_limite
     pass
 
 def calcola_polinomio_taylor(espressione: str, variabile: str, punto: float, ordine: int) -> sympy.Expr:
@@ -34,7 +38,7 @@ def risolvi_sistema_lineare(eq1: str, eq2: str, var1: str, var2: str) -> Dict[sy
 def main():
     print("Sub-task 1:", calcola_derivata("x**3 +2*x", "x"))
     print("Sub-task 2:", calcola_integrale_definito("x", "x", 0, 1))
-    print("Sub-task 3:", calcola_limite("sin(x)/x", "x", "0"))
+    print("Sub-task 3:", calcola_limite("(x**2 - 1)/(x-1)", "x", "1"))
     print("Sub-task 4:", calcola_polinomio_taylor("exp(x)", "x", 0.0, 4))
     print("Sub-task 5:", risolvi_sistema_lineare("x + y - 3", "x - y - 1", "x", "y"))
 
