@@ -4,9 +4,9 @@ from typing import Dict
 # Controlla il file readme.md per i dettagli su ciascun sub-task
 
 def calcola_derivata(espressione: str, variabile: str) -> sympy.Expr:
-    var = sp.Symbol(variabile)
-    espressione = sp.sympify(espressione)
-    derivata = sp.diff(espressione, var)
+    var = sympy.Symbol(variabile)
+    espressione = sympy.sympify(espressione)
+    derivata = sympy.diff(espressione, var)
     return derivata
     pass
 
@@ -27,7 +27,7 @@ def risolvi_sistema_lineare(eq1: str, eq2: str, var1: str, var2: str) -> Dict[sy
     pass
 
 def main():
-    print("Sub-task 1:", calcola_derivata("x**3 + 2*x", "x"))
+    print("Sub-task 1:", calcola_derivata("x**4 + 2*x**2", "x"))
     print("Sub-task 2:", calcola_integrale_definito("x**2", "x", 0, 3))
     print("Sub-task 3:", calcola_limite("sin(x)/x", "x", "0"))
     print("Sub-task 4:", calcola_polinomio_taylor("exp(x)", "x", 0.0, 4))
